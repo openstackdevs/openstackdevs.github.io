@@ -1,4 +1,4 @@
-baseURL = "https://www.openstackdevs.com/"
+baseURL = "https://openstackdevs.com/"
 languageCode = "en-us"
 title = "My Hugo Blog"
 theme = "PaperMod"
