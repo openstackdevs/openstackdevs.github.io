@@ -1,0 +1,47 @@
+{{ define "main" }}
+<main class="main">
+  <div class="hero">
+    <h1 class="hero-title">{{ .Site.Title }}</h1>
+    <p class="hero-subtitle">Production-grade OpenStack & Cloud Infrastructure Engineering</p>
+    <p class="hero-description">Practical guides on deployment, development, and operations at scale</p>
+  </div>
+
+  <div class="featured-topics">
+    <h2>Featured Topics</h2>
+    <div class="topics-grid">
+      <a href="/categories/openstack" class="topic-card">
+        <h3>OpenStack</h3>
+        <p>Deployment patterns, service development, API extensions</p>
+      </a>
+      <a href="/categories/ceph" class="topic-card">
+        <h3>Ceph</h3>
+        <p>Storage architecture, performance tuning, reliability</p>
+      </a>
+      <a href="/categories/magnum" class="topic-card">
+        <h3>Magnum & K8s</h3>
+        <p>Container infrastructure, COE management</p>
+      </a>
+      <a href="/categories/devops" class="topic-card">
+        <h3>Operations</h3>
+        <p>Monitoring, troubleshooting, security hardening</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="latest-posts">
+    <h2>Latest Articles</h2>
+    {{ range first 6 (where .Site.RegularPages "Type" "posts") }}
+      <article class="post-item">
+        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        <p class="post-meta">{{ .Date.Format "January 2, 2006" }} · {{ .ReadingTime }} min read</p>
+        <p class="post-summary">{{ .Summary }}</p>
+        <div class="post-tags">
+          {{ range .Params.tags }}
+            <span class="tag">#{{ . }}</span>
+          {{ end }}
+        </div>
+      </article>
+    {{ end }}
+  </div>
+</main>
+{{ end }}
