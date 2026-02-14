@@ -102,6 +102,22 @@ theme = "PaperMod"
     minMatchCharLength = 0
     keys = ["title", "permalink", "summary", "content"]
 
+  # Giscus comments
+  [params.giscus]
+    dataRepo = "openstackdevs/openstackdevs.github.io"
+    dataRepoId = ""
+    dataCategory = ""
+    dataCategoryId = ""
+    dataMapping = "pathname"
+    dataStrict = "0"
+    dataReactionsEnabled = "1"
+    dataEmitMetadata = "0"
+    dataInputPosition = "bottom"
+    dataTheme = "preferred_color_scheme"
+    dataLang = "en"
+    dataLoading = "lazy"
+    crossOrigin = "anonymous"
+
 # Main menu
 [[menu.main]]
   identifier = "posts"
