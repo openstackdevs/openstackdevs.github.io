@@ -1,0 +1,17 @@
+{{- $fuseOpts := dict "threshold" 0.4 "keys" (slice "title" "permalink" "summary" "content") -}}
+<input type="search" id="search-input" class="search-input" placeholder="Search articles..." />
+{{- $pages := where .Site.RegularPages "Kind" "page" -}}
+{{- $pages := where $pages "Params.searchable" "!=" false -}}
+{{- $pages := where $pages "Type" "in" (slice "posts" "blog") -}}
+{{- $pages = $pages | jsonify (dict "indent" "  ") -}}
+<script>
+  var fuseOpts = {{ $fuseOpts | jsonify }};
+  var pages = {{ $pages }};
+</script>
+{{- if .Site.Params.fuseOpts -}}
+  <script>
+    var customFuseOptions = {{ .Site.Params.fuseOpts | jsonify }};
+    Object.assign(fuseOpts, customFuseOptions);
+  </script>
+{{- end -}}
+<script src="{{ "js/fastsearch.js" | relURL }}" async></script>
